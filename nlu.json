@@ -48,7 +48,11 @@
     "path" : "/номер участника",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "Номер"
+    }, {
+      "text" : "Идентификатор"
+    } ],
     "classificationRules" : {
       "refs" : [ ]
     },
