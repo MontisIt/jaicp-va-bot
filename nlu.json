@@ -83,7 +83,7 @@
       "entity" : "Участник",
       "required" : true,
       "prompts" : [ "Кто ВЫ?" ],
-      "array" : true
+      "array" : false
     } ],
     "priority" : 0
   } ],
