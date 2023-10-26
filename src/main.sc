@@ -5,6 +5,9 @@ theme: /
     state: Start
         q!: $regex</start>
         a: Начнём
+        buttons:
+            "Участник" -> /Участник
+            "Номер" -> /Номер
         intent: /Участник || onlyThisState = false, toState = "Участник"
         intent: /Номер || onlyThisState = false, toState = "Узнать номер"
 
