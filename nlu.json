@@ -45,7 +45,7 @@
     },
     "priority" : 0
   }, {
-    "path" : "/Номер участника",
+    "path" : "/номер участника",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ ],
@@ -79,7 +79,7 @@
       "entity" : "Участник",
       "required" : true,
       "prompts" : [ ],
-      "array" : false
+      "array" : true
     } ],
     "priority" : 0
   } ],

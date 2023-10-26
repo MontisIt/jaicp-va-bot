@@ -1,13 +1,15 @@
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
 theme: /
+    
+    
 
     state: Start
         q!: $regex</start>
         a: Начнём
         buttons:
-            "Участник" -> /Участник
-            "Номер" -> /Номер
+            "Для записи участника" -> /Участник
+            "Узнать номер" -> /Номер
         intent: /Участник || onlyThisState = false, toState = "Участник"
         intent: /Номер || onlyThisState = false, toState = "Узнать номер"
 
@@ -22,8 +24,14 @@ theme: /
         
     state: Участник || sessionResult = "Участник", sessionResultColor = "#7E47D1"
         a:Введите номер участника:
-        
-        intent:/номер участника || onlyThisState = false,toState = "номер участника"
+        q:*
+        intent: /номер участника || onlyThisState = false,toState = "номер участника"
+        script:
+            if ($parseTree._ID) {
+                $temp.id = $parseTree._ID.value;
+            } else {
+                $temp.id = "1";
+            }
         event!: Nomatch
         
     state: номер участника || sessionResult = "номер участника", sessionResultColor = "#7E47D1"
@@ -32,8 +40,12 @@ theme: /
         
     state: Узнать номер || sessionResult = "Узнать номер", sessionResultColor = "#7E47D1"
        
+        a:Здесь {{ $entities[0] ? $parseTree.text : "продукт не найден" }}
         a:Введите номер учатника:
-        if: $entities[0]
+        q:*
+        if( {{$request.query}} = $temp.id){
             a: Есть номер
-        else:
+        } 
+        else{
             a: В запросе нет номера.
+        }
