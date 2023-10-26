@@ -78,7 +78,8 @@
       "name" : "Участник",
       "entity" : "Участник",
       "required" : true,
-      "prompts" : [ ]
+      "prompts" : [ ],
+      "array" : false
     } ],
     "priority" : 0
   } ],
