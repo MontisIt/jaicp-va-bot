@@ -61,8 +61,8 @@
       "name" : "ID",
       "entity" : "duckling.number",
       "required" : true,
-      "prompts" : [ ],
-      "array" : true
+      "prompts" : [ "Номер:" ],
+      "array" : false
     } ],
     "priority" : 0
   }, {
@@ -82,7 +82,7 @@
       "name" : "Участник",
       "entity" : "Участник",
       "required" : true,
-      "prompts" : [ ],
+      "prompts" : [ "Кто ВЫ?" ],
       "array" : true
     } ],
     "priority" : 0
@@ -102,6 +102,10 @@
       "hidden" : false
     },
     "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Участник" ],
+      "value" : ""
+    }, {
       "type" : "synonyms",
       "rule" : [ "Пользователь" ],
       "value" : ""
