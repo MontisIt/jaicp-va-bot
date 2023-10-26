@@ -55,7 +55,7 @@
     "patterns" : [ ],
     "slots" : [ {
       "name" : "ID",
-      "entity" : "pymorphy.numb",
+      "entity" : "duckling.number",
       "required" : true,
       "prompts" : [ ],
       "array" : true

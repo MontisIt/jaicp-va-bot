@@ -24,14 +24,15 @@ theme: /
         
     state: Участник || sessionResult = "Участник", sessionResultColor = "#7E47D1"
         a:Введите номер участника:
-        q:*
-        intent: /номер участника || onlyThisState = false,toState = "номер участника"
+    
+        intent!: /номер участника || onlyThisState = false,toState = "номер участника"
         script:
             if ($parseTree._ID) {
                 $temp.id = $parseTree._ID.value;
             } else {
                 $temp.id = "1";
             }
+        
         event!: Nomatch
         
     state: номер участника || sessionResult = "номер участника", sessionResultColor = "#7E47D1"
@@ -40,12 +41,12 @@ theme: /
         
     state: Узнать номер || sessionResult = "Узнать номер", sessionResultColor = "#7E47D1"
        
-        a:Здесь {{ $entities[0] ? $parseTree.text : "продукт не найден" }}
-        a:Введите номер учатника:
-        q:*
+        a:Здесь {{ $entities[0] ? $parseTree._ID.value : "продукт не найден" }}
+        a:Введите номер участника:
+        a: {{$request.query}}
         script:
-            $temp.numb = {{$request.query}}
-        if:  $temp.numb == $temp.id
+            var numb = $request.query
+        if: numb == $temp.id
             a: Есть номер
         else:
             a: В запросе нет номера.
