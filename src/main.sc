@@ -43,7 +43,9 @@ theme: /
         a:Здесь {{ $entities[0] ? $parseTree.text : "продукт не найден" }}
         a:Введите номер учатника:
         q:*
-        if: {{$request.query}} == $temp.id
+        script:
+            $temp.numb = {{$request.query}}
+        if:  $temp.numb == $temp.id
             a: Есть номер
         else:
             a: В запросе нет номера.
