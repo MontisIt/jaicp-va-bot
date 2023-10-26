@@ -74,7 +74,12 @@
       "refs" : [ ]
     },
     "patterns" : [ ],
-    "slots" : [ ],
+    "slots" : [ {
+      "name" : "Участник",
+      "entity" : "Участник",
+      "required" : true,
+      "prompts" : [ ]
+    } ],
     "priority" : 0
   } ],
   "entities" : [ {

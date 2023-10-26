@@ -7,8 +7,8 @@ theme: /
     state: Start
        
         q!: $regex</start>
-        a: Начнём.
-        intent: /Пользователь || onlyThisState = false,toState = "Участник"
+        a: Начнём
+        intent: /Участник || onlyThisState = false,toState = "Участник"
         intent: /Номер || onlyThisState = false,toState = "Узнать номер"
 
     state: NoMatch
@@ -23,7 +23,7 @@ theme: /
     state: Участник
         a:Введите номер участника:
         
-        intent:/номер участника|| onlyThisState = false,toState = "номер участника"
+        intent:/номер участника || onlyThisState = false,toState = "номер участника"
         event!: Nomatch
         
     state: номер участника
@@ -33,7 +33,7 @@ theme: /
     state: Узнать номер
        
         a:Введите номер учатника:
-        if: $entities.pymorphy.numb.session.value
+        if: $entities[0]
             a: Есть номер
         else:
             a: В запросе нет номера.
