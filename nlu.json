@@ -45,14 +45,10 @@
     },
     "priority" : 0
   }, {
-    "path" : "/ID",
+    "path" : "/Номер участника",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ {
-      "text" : "Пользователь"
-    }, {
-      "text" : "Участник"
-    } ],
+    "phrases" : [ ],
     "classificationRules" : {
       "refs" : [ ]
     },
@@ -65,22 +61,41 @@
       "array" : true
     } ],
     "priority" : 0
+  }, {
+    "path" : "/Участник",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Пользователь"
+    }, {
+      "text" : "Участник"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "slots" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {
-      "name" : "Новая_сущность",
+      "name" : "Участник",
       "enabled" : true,
       "shared" : false,
       "type" : "annotation",
       "priority" : 1,
-      "noSpelling" : true,
+      "noSpelling" : false,
       "noMorph" : false,
       "phoneticSearch" : false,
-      "fuzzySearch" : false,
-      "client" : false,
+      "fuzzySearch" : true,
+      "client" : true,
       "hidden" : false
     },
-    "records" : [ ]
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Пользователь" ],
+      "value" : ""
+    } ]
   }, {
     "entity" : {
       "name" : "Номер",

@@ -22,8 +22,8 @@ theme: /
         
     state: Участник
         a:Введите номер участника:
-        intent: /ID
-        go:/номер участника 
+        
+        intent:/номер участника|| onlyThisState = false,toState = "номер участника"
         event!: Nomatch
         
     state: номер участника
