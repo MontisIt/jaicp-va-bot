@@ -15,7 +15,7 @@ theme: /
 
     state: Участник || sessionResult = "Участник", sessionResultColor = "#7E47D1"
         a:Введите номер участника:
-        q:*{{$parseTree._ID.value}}*
+        q:*
         intent: /номер участника || onlyThisState = false, toState = "/номер участника"
         script:
             if ($parseTree._ID) {

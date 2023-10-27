@@ -79,11 +79,11 @@
     },
     "patterns" : [ ],
     "slots" : [ {
-      "name" : "Участник",
-      "entity" : "Участник",
+      "name" : "Имя",
+      "entity" : "mystem.persn",
       "required" : true,
-      "prompts" : [ "Кто ВЫ?" ],
-      "array" : false
+      "prompts" : [ "Кто Вы?" ],
+      "array" : true
     } ],
     "priority" : 0
   } ],
@@ -134,14 +134,14 @@
       "value" : ""
     } ]
   } ],
-  "enabledSystemEntities" : [ "pymorphy.numb", "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
+  "enabledSystemEntities" : [ "mystem.persn", "pymorphy.numb", "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
     "name" : "mystem.geo",
     "enabled" : false
   }, {
     "name" : "mystem.persn",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "mystem.obsc",
     "enabled" : false
