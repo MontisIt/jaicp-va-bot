@@ -52,6 +52,8 @@
       "text" : "Номер"
     }, {
       "text" : "Идентификатор"
+    }, {
+      "text" : "ID"
     } ],
     "classificationRules" : {
       "refs" : [ ]
@@ -59,10 +61,10 @@
     "patterns" : [ ],
     "slots" : [ {
       "name" : "ID",
-      "entity" : "duckling.number",
+      "entity" : "Номер",
       "required" : true,
       "prompts" : [ "Номер:" ],
-      "array" : false
+      "array" : true
     } ],
     "priority" : 0
   }, {
@@ -126,11 +128,15 @@
     },
     "records" : [ {
       "type" : "synonyms",
-      "rule" : [ "Идентификатор", "Серийный номер" ],
+      "rule" : [ "два", "2" ],
       "value" : ""
     }, {
       "type" : "pattern",
-      "rule" : [ "*ном*" ],
+      "rule" : [ "@duckling.number" ],
+      "value" : ""
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "один", "1" ],
       "value" : ""
     } ]
   } ],
