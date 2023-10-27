@@ -13,34 +13,24 @@ theme: /
         intent: /Участник || onlyThisState = false, toState = "/Участник"
         intent: /Номер || onlyThisState = false, toState = "/Узнать номер"
 
-    state: NoMatch
-        event!: noMatch
-        a: Я не понял. Вы сказали: {{$request.query}}
-        go!: /Start
-
-    state: Match
-        event!: match
-        a: {{$context.intent.answer}}
-        
     state: Участник || sessionResult = "Участник", sessionResultColor = "#7E47D1"
         a:Введите номер участника:
+        q:*{{$parseTree._ID.value}}*
+        intent: /номер участника || onlyThisState = false, toState = "/номер участника"
         script:
             if ($parseTree._ID) {
                 $temp.id = $parseTree._ID.value;
             } else {
                 $temp.id = "1";
             }
-        intent: /номер участника || onlyThisState = false, toState = "/номер участника"
-        
-        
-        event!: Nomatch
         
     state: номер участника || sessionResult = "номер участника", sessionResultColor = "#7E47D1"
         a: Хорошо, записала: {{$request.query}}.
-        go!:/Start
+        go!:/Проверка сущности
         
     state: Узнать номер || sessionResult = "Узнать номер", sessionResultColor = "#7E47D1"
-       
-        a:Здесь {{ $parseTree.text }}
+       a:Здесь {{ $entities.$parseTree.text}}
+       a:Здесь {{$parseTree._ID.value}}
       
-        
+    state: Проверка сущности || sessionResult = "Проверка сущности", sessionResultColor = "#7E47D1"
+        a: {{$antitis}}
